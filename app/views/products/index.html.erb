@@ -1,0 +1,36 @@
+
+<h1>Lista de productos</h1>
+
+<a href="<%= new_product_path %>" class="btn btn-primary btn-icon-split">
+ <span class="icon text-white-50">
+ <i class= "fas fa-flag"></i>
+ </span>
+ <span class="text"> Crear Producto </span>
+</a>
+<%= link_to 'Exporta a Excel', products_path(format: :xlsx), class: 'btn btn-success'%>
+
+<table class="table">
+ <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Referencia</th>
+    <th>Cantidad</th>
+    <th>Acciones</th>
+  </tr>
+ </thead>
+ <tbody>
+ <% @products.each do |product|%>
+  <tr>
+    <td><%= product.id%></td>
+    <td><%= product.name%></td>
+    <td><%= product.reference%></td>
+    <td><%= product.quantity %></td>
+    <td><%= link_to "Detalles", product_path(product), class:'btn btn-primary'%></td>    
+  </tr>
+ <% end %>
+ </tbody>
+</table>
+
+
+
